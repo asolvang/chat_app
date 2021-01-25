@@ -1,8 +1,9 @@
 <div class="flex-col">
   <div class="text-5xl antialiased font-logo text-blue-50">Aviny</div>
 </div>
-<div class="flex-col mt-5 text-white">
-  <div class="col">
-    menu point 1
-  </div>
+<div class="flex-col mt-5 mr-0 text-white text-left rounded ring-4 ring-blue-600 pt-1 pr-3 pd-1 pl-5 bg-blue-800 hover:bg-white hover:text-blue-800">
+  <%= link_to "Sign up", create_account_path, class: "align-middle pb-1" %>
+</div>
+<div class="flex-col text-white">
+  <%= link_to "Sign in", new_user_session_path, class: "col" %>
 </div>
