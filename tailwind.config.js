@@ -163,7 +163,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'Inter var',
+        '"Inter var"',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',
@@ -190,6 +190,7 @@ module.exports = {
         '"Courier New"',
         'monospace',
       ],
+      logo: ['"Coda Caption"'],
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],
