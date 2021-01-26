@@ -1,0 +1,21 @@
+<% if !user_signed_in? %>
+      <li class="transition-all duration-300 ease-in-out border-t-2 border-l-2 pl-2 border-b-2 border-blue-500 border-opactiy-100 bg-blue-600 hover:bg-white hover:text-blue-800">
+        <%= link_to "Sign up", create_account_path, class: "align-middle pb-1 " %>
+        </li>
+      <li class="transition-all duration-300 ease-in-out border-b-2 border-l-2 pl-2 border-blue-500 border-opactiy-100 bg-blue-600 hover:bg-white hover:text-blue-800">
+        <%= link_to "Sign in", new_user_session_path, class: "align-middle pb-1" %>
+      </li>
+    <% else %>
+      <li class="transition-all duration-300 ease-in-out border-t-2 border-l-2 pl-2 border-b-2 border-blue-500 border-opactiy-100 bg-blue-600 hover:bg-white hover:text-blue-800">
+        <%= link_to "Edit account info", edit_user_registration_path, class: "align-middle pb-1" %>
+      </li>
+      <li class="transition-all duration-300 ease-in-out border-b-2 border-l-2 pl-2 border-blue-500 border-opactiy-100 bg-blue-600 hover:bg-white hover:text-blue-800">
+        <%= link_to "Change password", edit_user_password_path, class: "align-middle pb-1" %>
+      </li>
+      <li class="transition-all duration-300 ease-in-out border-b-2 border-l-2 pl-2 border-blue-500 border-opactiy-100 bg-blue-600 hover:bg-white hover:text-blue-800">
+        <%= link_to "Edit account info", edit_user_password_path, class: "align-middle pb-1" %>
+      </li>
+      <li class="transition-all duration-300 ease-in-out border-b-2 border-l-2 pl-2 border-blue-500 border-opactiy-100 bg-blue-600 hover:bg-white hover:text-blue-800">
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "align-middle pb-1" %>
+      </li>
+    <% end %>
