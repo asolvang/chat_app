@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <%= render 'layouts/head' %>
+  <%= render 'layouts/partials/head' %>
 
-  <body>
+  <body class="bg-blue-100">
     <div id="menu" class="flex">
       <aside class="h-screen sticky top-0  bg-blue-900 w-1/3 pl-5 pt-5">
-        <%= render 'layouts/aside' %>
+        <%= render 'layouts/partials/aside' %>
       </aside>
-      <main class="w-full text-black pt-5 pl-5">
+      <main class="w-full text-black pt-5 pl-5 mr-3">
         <%= yield %>
       </main>
     </div>

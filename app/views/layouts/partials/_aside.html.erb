@@ -1,0 +1,12 @@
+<div class="flex-col">
+  <%= link_to "Aviny", root_path, class: "text-5xl antialiased font-logo text-blue-50" %>
+</div>
+
+<div data-controller="menu" class="bg-blue-300 h-5/6">
+  <% if user_signed_in? %>
+    <%= render 'layouts/partials/menu/account_menu' %>
+    <%= render 'layouts/partials/menu/messages_menu' %>
+  <% else %>
+    <%= render 'layouts/partials/menu/signed_out_menu' %>
+  <% end %>
+</div>

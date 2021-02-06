@@ -1,0 +1,9 @@
+<div class="flex-col mr-0pt-1 pl-5">
+  <button class="font-logo pl-3 pt-1 outline-none text-blue-600 hover:text-white bg-blue-300 hover:bg-blue-600 w-full text-left transition duration-600 ease-in-out focus:outline-none" data-action="menu#messages" data-menu-value="mes">Messages</button>
+  <ul class="list-none text-white text-left hidden pb-2" data-menu-target="messages">
+    <li class="transition-all duration-300 ease-in-out border-t-2 border-l-2 pl-2 border-b-2 border-blue-500 border-opactiy-100 bg-blue-400 hover:bg-white hover:text-blue-800 rounded">
+      <%= link_to "New message", "#", class: "align-middle pb-1 w-full inline-block", id: "message_new_message" %>
+    </li>
+  </ul>
+</div>
+

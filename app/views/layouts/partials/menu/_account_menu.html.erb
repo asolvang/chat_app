@@ -1,0 +1,17 @@
+<div class="flex-col mt-5 mr-0 pt-1 pl-5">
+  <button class="text-blue-600 font-logo pl-3 pt-1 outline-none hover:text-white hover:bg-blue-600 w-full text-left transition ease-in-out focus:outline-none" data-action="menu#account" data-menu-value="acc">Account</button>
+  <ul class="list-none text-white text-left hidden pb-2" data-menu-target="account">
+    <li class="transition-all duration-300 ease-in-out border-t-2 border-l-2 pl-2 border-b-2 border-blue-500 border-opactiy-100 bg-blue-400 hover:bg-white hover:text-blue-800 rounded-t">
+      <%= link_to "Edit account info", edit_user_registration_path, class: "align-middle pb-1 w-full inline-block" %>
+    </li>
+    <li class="transition-all duration-300 ease-in-out border-b-2 border-l-2 pl-2 border-blue-500 border-opactiy-100 bg-blue-400 hover:bg-white hover:text-blue-800">
+      <%= link_to "Change password", edit_user_password_path, class: "align-middle pb-1 w-full inline-block" %>
+    </li>
+    <li class="transition-all duration-300 ease-in-out border-b-2 border-l-2 pl-2 border-blue-500 border-opactiy-100 bg-blue-400 hover:bg-white hover:text-blue-800">
+      <%= link_to "Edit account info", edit_user_password_path, class: "align-middle pb-1 w-full inline-block" %>
+    </li>
+    <li class="transition-all duration-300 ease-in-out border-b-2 border-l-2 pl-2 border-blue-500 border-opactiy-100 bg-blue-400 hover:bg-white hover:text-blue-800 rounded-b">
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "align-middle pb-1 w-full inline-block" %>
+    </li>
+  </ul>
+</div>
