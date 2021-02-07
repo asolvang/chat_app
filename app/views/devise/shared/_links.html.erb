@@ -1,13 +1,13 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Sign in", new_session_path(resource_name), class: "focus:outline-none text-center w-full inline-block p-1 bg-blue-300 text-blue-900 hover:bg-white hover:shadow-inner transition ease-in transform hover:-translate-y-1 hover:scale-101 mb-1" %>
+  <%= link_to "Sign in", login_path, class: "focus:outline-none text-center w-full inline-block p-1 bg-blue-300 text-blue-900 hover:bg-white hover:shadow-inner transition ease-in transform hover:-translate-y-1 hover:scale-101 mb-1" %>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name), class: "focus:outline-none text-center w-full inline-block p-1 bg-blue-300 text-blue-900 hover:bg-white hover:shadow-inner transition ease-in transform hover:-translate-y-1 hover:scale-101 mb-1" %>
+  <%= link_to "Sign up", create_account_path, class: "focus:outline-none text-center w-full inline-block p-1 bg-blue-300 text-blue-900 hover:bg-white hover:shadow-inner transition ease-in transform hover:-translate-y-1 hover:scale-101 mb-1" %>
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name), class: "focus:outline-none text-center w-full inline-block p-1 bg-blue-300 text-blue-900 hover:bg-white hover:shadow-inner transition ease-in transform hover:-translate-y-1 hover:scale-101 mb-1" %>
+  <%= link_to "Forgot your password?", forgot_password_path, class: "focus:outline-none text-center w-full inline-block p-1 bg-blue-300 text-blue-900 hover:bg-white hover:shadow-inner transition ease-in transform hover:-translate-y-1 hover:scale-101 mb-1" %>
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>

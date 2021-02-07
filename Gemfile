@@ -53,7 +53,9 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'hotwire-rails'
 gem 'pagy'
 gem 'sidekiq'
+gem "view_component", require: "view_component/engine"
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
 
 group :development do
   gem 'annotate'
