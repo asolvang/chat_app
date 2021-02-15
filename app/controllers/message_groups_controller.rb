@@ -1,4 +1,5 @@
 class MessageGroupsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_message_group, only: %i[ show edit update destroy ]
 
   # GET /message_groups or /message_groups.json
