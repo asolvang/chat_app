@@ -16,8 +16,8 @@ class Elements::HeadingComponent < ViewComponent::Base
   end
 
   def heading_classes
-    return "text-#{ class_selector }xl font-logo text-blue-900" unless @heading_type == "" || @heading_type.nil? || @heading_type == :p || @heading_type == 3
-    return "text-xl font-logo text-blue-900" unless @heading_type == :p
+    return "text-#{ class_selector }xl font-mono font-bold text-blue-900" unless @heading_type == "" || @heading_type.nil? || @heading_type == :p || @heading_type == 3
+    return "text-xl text-blue-900" unless @heading_type == :p
     return ""
   end
 
@@ -25,6 +25,7 @@ private
 
   def class_selector
     return 3 if @heading_type == 1
+
     return @heading_type
   end
 end
