@@ -1,6 +1,10 @@
 <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
+  <%= render(Elements::AlertComponent.new(alert_color: :green)) do %>
+    <%= notice %>
+  <% end %>
 <% end %>
 <% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
+  <%= render(Elements::AlertComponent.new(alert_color: :red)) do %>
+    <%= alert %>
+  <% end %>
 <% end %>

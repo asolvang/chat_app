@@ -1,0 +1,14 @@
+@layer base {
+
+// Standard button class - all should have this
+  .alert {
+    @apply  border 
+            text-center 
+            w-full  
+            rounded
+            p-1
+            text-lg
+            font-semibold
+            mb-3;            
+  }
+}
