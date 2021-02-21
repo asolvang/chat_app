@@ -5,7 +5,7 @@
 </div>
 <div>
   <div>
-    <%= link_to 'New conversation', new_message_group_path, class: "btn btn-blue btn-alone mt-10" %>
+    <%= link_to 'New conversation', conversation_path, class: "btn btn-blue btn-alone mt-10" %>
   </div>
 
   <% if @message_groups.empty? %>
@@ -28,7 +28,7 @@
         <% @message_groups.each do |message_group| %>
           <tr>
             <td class="border border-blue-400 pl-5"><%= message_group.name %></td>
-            <td class="border border-blue-400 pl-5"><%= message_group.user_id %></td>
+            <td class="border border-blue-400 pl-5"><%= message_group.owner.email %></td>
             <td class="border border-blue-400 pl-5"><%= link_to 'Show', message_group %></td>
             <td class="border border-blue-400 pl-5"><%= link_to 'Edit', edit_message_group_path(message_group) %></td>
             <td class="border border-blue-400 pl-5"><%= link_to 'Destroy', message_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>

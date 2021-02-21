@@ -2,19 +2,21 @@
 #
 # Table name: message_groups
 #
-#  id         :bigint           not null, primary key
-#  name       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :bigint           not null
+#  id             :bigint           not null, primary key
+#  name           :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  owner_id       :bigint           not null
+#  participant_id :bigint
 #
 # Indexes
 #
-#  index_message_groups_on_user_id  (user_id)
+#  index_message_groups_on_owner_id        (owner_id)
+#  index_message_groups_on_participant_id  (participant_id)
 #
 # Foreign Keys
 #
-#  fk_rails_...  (user_id => users.id)
+#  fk_rails_...  (owner_id => users.id)
 #
 require 'rails_helper'
 

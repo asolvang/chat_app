@@ -21,4 +21,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :message_groups, foreign_key: 'owner_id'
+  has_many :message_groups, through: :user_conversation
 end

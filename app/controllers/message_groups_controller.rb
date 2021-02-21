@@ -4,35 +4,48 @@ class MessageGroupsController < ApplicationController
 
   # GET /message_groups or /message_groups.json
   def index
-    @message_groups = MessageGroup.all
+    @message_groups = MessageGroup.includes([:owner]).where(owner_id: current_user)
   end
 
   # GET /message_groups/1 or /message_groups/1.json
   def show
   end
 
-  # GET /message_groups/new
-  def new
-    @message_group = MessageGroup.new
+  def conversation
+    @message_group = MessageGroup.new(name: "Conversation", owner_id: current_user.id)
+    UserConversation.create(message_group_id: @message_group, user_id: current_user.id)
+
+    respond_to do |format|
+      
+      if @message_group.save
+        format.html { redirect_to @message_group, notice: "Conversation created"}
+        format.json { render :show, status: :created, location: @message_group }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @message_group.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def add_user_to_conversation
+    UserConversation.create(user_id: params[:user], message_group_id: params[:message_group])
+    
+    respond_to do |format|
+      format.html { redirect_to message_group_path(params[:message_group])}
+    end
+  end
+
+  def remove_user_from_conversation
+    relationship = UserConversation.where(user_id: params[:user], message_group_id: params[:message_group]).first
+    relationship.destroy
+
+    respond_to do |format|
+      format.html { redirect_to message_group_path(params[:message_group])}
+    end
   end
 
   # GET /message_groups/1/edit
   def edit
-  end
-
-  # POST /message_groups or /message_groups.json
-  def create
-    @message_group = MessageGroup.new(message_group_params)
-
-    respond_to do |format|
-      if @message_group.save
-        format.html { redirect_to @message_group, notice: "Message group was successfully created." }
-        format.json { render :show, status: :created, location: @message_group }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @message_group.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /message_groups/1 or /message_groups/1.json
@@ -69,7 +82,7 @@ class MessageGroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_group_params
-      params.require(:message_group).permit(:name, :user_id)
+      params.require(:message_group).permit(:name, :owner_id, :participant_id)
     end
 
     # Only allow search on search param
