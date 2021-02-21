@@ -57,6 +57,10 @@ class MessageGroupsController < ApplicationController
     end
   end
 
+  def search
+    @search = User.where('email LIKE ?', "%#{params[:search]}%")
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_message_group
@@ -66,5 +70,10 @@ class MessageGroupsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def message_group_params
       params.require(:message_group).permit(:name, :user_id)
+    end
+
+    # Only allow search on search param
+    def search_params
+      params.require(:search_form).permit(:search)
     end
 end

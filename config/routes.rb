@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :message_groups
+  resources :message_groups do
+  end
+  get 'user_search', to: 'message_groups#search'
+
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout'}
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'

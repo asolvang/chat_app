@@ -11,17 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="mt-2">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "rounded shadow w-full focus:ring-2 focus:ring-green-500", placeholder: "Name of conversation", autofocus: "true" %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+<!-- Add users to a list here -->
+  <div class="mt-2">
+    <div id="users_added_to_conversation">
+      <p>No users added</p>
+    </div>
+    <%= form.hidden_field :users, id: "users" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="mb-6">
+    <%= form.submit "Create group", class: "cursor-pointer border border-blue-500 rounded shadow-lg text-center w-full mt-2 p-1 mb-2 bg-blue-900 text-white hover:bg-white hover:text-blue-900 hover:shadow-inner transition ease-in transform hover:-translate-y-1 hover:scale-101 focus:ring-2 focus:ring-green-500" %>
   </div>
 <% end %>
+
+<div class="mt-2">
+  <%= form_with url: user_search_path do %>
+    <div>
+      <%= text_field_tag :search, nil, placeholder: "Find users here", class: "rounded shadow w-full focus:ring-2 focus:ring-green-500" %>
+    </div>
+    <div class="mb-6">
+      <%= submit_tag "Search for people", class: "cursor-pointer border border-blue-500 rounded shadow-lg text-center w-full mt-2 p-1 mb-2 bg-blue-900 text-white hover:bg-white hover:text-blue-900 hover:shadow-inner transition ease-in transform hover:-translate-y-1 hover:scale-101 focus:ring-2 focus:ring-green-500" %>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <div data-controller="user-search">
+    <input type="text" name="search" autocomplete="off" data-user-search-target="search" data-action="keyup->user-search#searchUser" placeholder="search">
+  </div>
+  <div>
+    <ul id="wrapper"></ul>
+  </div>
+</div>
