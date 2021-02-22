@@ -10,16 +10,31 @@
   <%= render(Elements::HeadingComponent.new(heading_type: 3)) do %>
     Add <%= "more" unless @message_group.users.nil? %> people to <%= @message_group.name %>
   <% end %>
-  <ul>
-    <% @message_group.users.each do |user| %>
-      <li>
-        <% if user != @message_group.owner %>
-          <%= link_to "X", remove_user_path(user.id, @message_group.id), class:"inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full cursor-pointer" %>
+
+  <div data-controller="user-search">
+    <%= render partial: "shared/search_form" %>
+    <div data-user-search-target="results">
+      <h1>Users not in conversation</h1>
+      <% unless @users.nil? %>
+        <% @users.each do |user| %>
+          <%= render partial: "user_search/user", locals: { user: user } %>
         <% end %>
-        <span class="ml-10"><%= user.email %></span>
-      </li>
-    <% end %>
-  </ul>
+      <% end %>
+    </div>
+  </div>
+  <div class="mt-5">
+    <h1>Users in conversation</h1>
+    <ul>
+      <% @message_group.users.each do |user| %>
+        <li>
+          <% if user != @message_group.owner %>
+            <%= link_to "X", remove_user_path(user.id, @message_group.id), class:"inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full cursor-pointer" %>
+          <% end %>
+          <span class="ml-10"><%= user.email %></span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 <div class="mt-5">

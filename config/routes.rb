@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  resources :user_search, only: [:index]
   resources :message_groups, except: :new
-  get 'user_search', to: 'message_groups#search'
+  
   get 'conversation', to: 'message_groups#conversation'
   get "remove_user_from_conversation/:user/:message_group(.:format)", to: 'message_groups#remove_user_from_conversation', as: :remove_user
   get "add_user_to_conversation/:user/:message_group(.:format)", to: 'message_groups#add_user_to_conversation', as: :add_user

@@ -9,6 +9,7 @@ class MessageGroupsController < ApplicationController
 
   # GET /message_groups/1 or /message_groups/1.json
   def show
+    
   end
 
   def conversation
