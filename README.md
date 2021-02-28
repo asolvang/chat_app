@@ -1,24 +1,21 @@
-# README
+# Chat_app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple demo og Hotwire, Stimulus.js in the form of a "messenger" type chat app.
 
-Things you may want to cover:
+Uses:
+Hotwire (not implemented yet for realtime updates of messages)
+Stimulus
+Webpacker
+Tailwind
+Devise
+Sidekick (not implemented yet for messages handling)
+Postgres
 
-* Ruby version
+To install:
+Download and run 
+rails db:crate
+rails db:migrate
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To run:
+Terminal 1: foreman start -f Procfile.dev 
+Terminal 2: rails s
